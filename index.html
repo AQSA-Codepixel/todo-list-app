@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Tasks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top">
+    <div>
+      <p class="date" id="date"></p>
+      <h1>My Tasks</h1>
+    </div>
+    <button class="icon" id="theme" aria-label="Switch light or dark theme"></button>
+  </header>
+
+  <section class="progress" aria-label="Progress">
+    <div class="ptext"><b id="pt">0 of 0 done</b><span id="ps">Add a task to get started</span></div>
+    <div class="ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="rt" cx="32" cy="32" r="26"/><circle class="rp" id="rp" cx="32" cy="32" r="26"/></svg><b id="rpct">0%</b></div>
+  </section>
+
+  <nav class="tabs" id="tabs" aria-label="Filter tasks">
+    <button data-f="all" class="on">All <em>0</em></button>
+    <button data-f="active">Active <em>0</em></button>
+    <button data-f="done">Done <em>0</em></button>
+  </nav>
+
+  <ul id="list"></ul>
+
+  <button class="fab" id="fab" aria-label="Add new task"></button>
+
+  <div class="wrap" id="wrap" hidden>
+    <div class="scrim" id="scrim"></div>
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh">
+      <div class="grab"></div>
+      <h2 id="sh">New task</h2>
+      <input class="field" id="fTitle" type="text" placeholder="What do you need to do?" maxlength="200" autocomplete="off" aria-label="Task title">
+      <p class="err" id="err" hidden>Enter a task title.</p>
+      <label class="lab">Due date <input class="field" id="fDue" type="date"></label>
+      <div class="lab">Priority <span class="opt">(optional)</span>
+        <div class="chips" id="fPri">
+          <button data-p="high" class="high">High</button>
+          <button data-p="medium" class="medium">Medium</button>
+          <button data-p="low" class="low">Low</button>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="danger" id="fDel">Delete</button>
+        <button class="ghost" id="fCancel">Cancel</button>
+        <button class="save" id="fSave">Add task</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"><span id="tmsg"></span><button id="tundo">Undo</button></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
